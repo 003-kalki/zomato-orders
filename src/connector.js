@@ -1,27 +1,21 @@
-
 var mysql = require('mysql');
 
-
-// var con = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "a",
-//     database: "test",
-//     multipleStatements: true
-// });
-
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "mariaDb@2026",
-    database: "test",
+    host: process.env.MYSQLHOST || "localhost",
+    user: process.env.MYSQLUSER || "root",
+    password: process.env.MYSQLPASSWORD || "maria@2026",
+    database: process.env.MYSQLDATABASE || "test",
+    port: process.env.MYSQLPORT || 3306,
     multipleStatements: true
 });
 
-
 con.connect(function (err) {
-    if (err) return console.log("failed to connect to mysql server/ database", err);
-    else return console.log("connection establish with Datebase!!!!");
+    if (err) {
+        console.log("failed to connect to mysql server/database", err);
+        return;
+    }
+
+    console.log("connection established with database!");
 });
 
 module.exports = con;
