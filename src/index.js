@@ -39,14 +39,13 @@ app.get("/api/orders", (req, res) => {
         (err, result) => {
 
             if (err) {
-                console.error("Database Error:", err);
+         console.error("Database Error:", err);
 
-                return res.status(500).json({
-                    message: "Database Error"
-                });
-            }
-
-            return res.status(200).json(result);
+         return res.status(500).json({
+        message: err.message
+            });
+          }
+             return res.status(200).json(result);
         }
     );
 });
