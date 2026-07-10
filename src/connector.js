@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
     host: process.env.MYSQLHOST || "localhost",
     user: process.env.MYSQLUSER || "root",
-    password: process.env.MYSQLPASSWORD || "maria@2026",
+    password: process.env.MYSQLPASSWORD || "mariaDb@2026",
     database: process.env.MYSQLDATABASE || "test",
     port: process.env.MYSQLPORT || 3306,
     multipleStatements: true
